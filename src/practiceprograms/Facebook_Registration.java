@@ -3,16 +3,14 @@ package practiceprograms;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.support.ui.Select;
 
-public class FacebookLogin {
+public class Facebook_Registration {
 
 	public static void main(String[] args) throws InterruptedException {
 		ChromeDriver driver = new ChromeDriver();
 		driver.get("https://www.facebook.com/");
 		driver.manage().window().maximize();
-		// driver.findElement(By.id("email")).sendKeys("shweta16.gadewar@gmail.com");
-		// driver.findElement(By.id("pass")).sendKeys("xyz");
-		// driver.findElement(By.name("login")).click();
 		WebElement createnewaccount = driver.findElement(By.linkText("Create new account"));
 		createnewaccount.click();
 
@@ -23,15 +21,21 @@ public class FacebookLogin {
 		ln.sendKeys("Gadewar");
 		WebElement email = driver.findElement(By.name("reg_email__"));
 		email.sendKeys("shweta@gmail.com");
+		WebElement day=driver.findElement(By.id("day"));
+		Select s1=new Select(day);
+		s1.selectByVisibleText("22");
+		WebElement month=driver.findElement(By.id("month"));
+		Select s2=new Select(month);
+		s2.selectByValue("8");
+		WebElement year=driver.findElement(By.id("year"));
+		Select s3=new Select(year);
+		s3.selectByValue("2000");
+		//WebElement gender = driver.findElement(By.name("//input[@value='1']"));
+		//gender.click();
 
-		WebElement password = driver.findElement(By.id("password_step_input"));
-		password.sendKeys("shweta@gmail.com");
-         // Thread.sleep(5000);
-          //WebElement password_confirmation= driver.findElement(By.id("reg_email_confirmation__"));
-          //password_confirmation.sendKeys("shweta@gmail.com");
-          
 		WebElement sign_button = driver.findElement(By.name("websubmit"));
 		sign_button.click();
 	}
 
 }
+//https://grotechminds.com/hoverover/
